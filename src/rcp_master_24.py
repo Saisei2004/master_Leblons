@@ -228,24 +228,24 @@ class GuideGuests(smach.State):#ゲストのガイド
         self.navi_srv('order')
         rospy.sleep(2.0)
 
+
+        
         while 1:
                 chair_points = self.multiple("chair").points
                 if chair_points:
                     print(chair_points)
-                    if len(chair_points) > 1:
-                        chair_x,chair_y = self.guide.Calculate_Angle(chair_points,0)
-                        chair_x2,chair_y2 = self.guide.Calculate_Angle(chair_points,1)
-                        if chair_y2 > chair_y:
-                            chair_y = chair_y2
-                        angle = math.atan2(chair_y,chair_x) * (180/ math.pi)
-                        rospy.sleep(1.0)
-                        self.bc.rotateAngle(int(angle),0.2)
+                    
+                    ########################
 
-                    else:
-                        chair_x,chair_y = self.guide.Calculate_Angle(chair_points,0)
-                        angle = math.atan2(chair_y,chair_x) * (180/ math.pi)
-                        rospy.sleep(1.0)
-                        self.bc.rotateAngle(int(angle),0.2)
+
+                    #人が座ってる席をなくす処理
+                    
+
+                    #########################
+                        
+                    angle = math.atan2(chair_y,chair_x) * (180/ math.pi)
+                    rospy.sleep(1.0)
+                    self.bc.rotateAngle(int(angle),0.2)
 
                     rospy.sleep(0.5)
                     self.arm_srv('point')
