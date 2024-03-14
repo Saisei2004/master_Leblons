@@ -232,9 +232,10 @@ class GuideGuests(smach.State):#ゲストのガイド
         rospy.sleep(2.0)
         tts_srv("plese follow me")
         rospy.sleep(1.0)
-        self.navi_srv('order')
+        #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+        self.navi_srv('order')#テスト用にコメントアウト
         rospy.sleep(2.0)
-        if guest_num == 0 :#and (not (''.join(re.findall(r'\d+', self.feature_dic["guest1"]["age"])))) or (not(''.join(re.findall(r'\d+',self.feature_dic["guest2"]["age"])))):
+        if guest_num == 0 :
             
             #空いている椅子を指す
             """
