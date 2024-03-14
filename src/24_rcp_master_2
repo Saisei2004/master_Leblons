@@ -78,7 +78,8 @@ class MoveInitalPosition(smach.State):#ゲストの検出のための位置へ�
 class DiscoverGuests(smach.State):#ゲストの検出、受付
     def __init__(self):
         smach.State.__init__(self, outcomes = ['discover_finish'],
-                             input_keys = ['feature_in']
+                             input_keys = ['feature_in'],
+                             output_keys = ['feature_out']
                              )
         self.ap_srv = rospy.ServiceProxy('/approach_person_server', StrTrg)
         #self.head_pub = rospy.ServiceProxy('/servo/head',Float64, queue_size = 1)
@@ -135,7 +136,7 @@ class DiscoverGuests(smach.State):#ゲストの検出、受付
 
                 feature_list = [self.f_age, self.f_glass, self.f_gender, self.f_cloth, self.f_pants]
                 #書き換える
-                userdata.feature_in = feature_list
+                userdata.feature_out = feature_list
 
 
             ################################################
@@ -217,7 +218,7 @@ class IntroduceGuests(smach.State):#オーナーのもとへ移動、ゲスト�
 class GuideGuests(smach.State):#ゲストのガイド
     def __init__(self):
         smach.State.__init__(self, outcomes = ['guide_finish','all_finish'],
-                             input_keys = ['g_count_in','feature_out'],
+                             input_keys = ['g_count_in','feature_in'],
                              output_keys =  ['g_count_out'])
         self.bc = BaseControl()
         self.arm_srv = rospy.ServiceProxy('/servo/arm', StrTrg)
@@ -294,7 +295,7 @@ class GuideGuests(smach.State):#ゲストのガイド
                     return 'guide_finish'
                     
                 else:
-                    self.sentence_list = userdata.feature_out
+                    self.sentence_list = userdata.feature_in
                     print(userdata.feature_out)
 
                     for i in range(len(self.sentence_list)):
