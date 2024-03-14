@@ -70,6 +70,7 @@ class MoveInitalPosition(smach.State):#ゲストの検出のための位置へ�
             #テスト用でここコメントアウト
             #self.navi_srv('entrance')  
             #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+            tts_srv("Moved to entrance.")
             #self.bc.rotateAngle(,0.2)#入り口の方を向く
             rospy.sleep(3.5)
             return 'move_finish'
@@ -177,7 +178,10 @@ class IntroduceGuests(smach.State):#オーナーのもとへ移動、ゲスト�
         result = self.coord_gen_srv().result
         print("result")
         print(result)
-        self.ap_srv(data = g_name)
+        #self.ap_srv(data = g_name)#テスト用でコメントアウト
+        #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    
+        tts_srv("Approached by owner.")
      　 
         '''
         self.navi_srv('operator')
@@ -233,7 +237,8 @@ class GuideGuests(smach.State):#ゲストのガイド
         tts_srv("plese follow me")
         rospy.sleep(1.0)
         #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-        self.navi_srv('order')#テスト用にコメントアウト
+        #self.navi_srv('order')#テスト用にコメントアウト
+        tts_srv("Moved to Order.")
         rospy.sleep(2.0)
         if guest_num == 0 :
             
