@@ -296,7 +296,7 @@ class GuideGuests(smach.State):#ゲストのガイド
                     
                 else:
                     self.sentence_list = userdata.feature_in
-                    print(userdata.feature_out)
+                    print(self.sentence_list)
 
                     for i in range(len(self.sentence_list)):
                         self.tts_srv(self.sentence_list[i])
