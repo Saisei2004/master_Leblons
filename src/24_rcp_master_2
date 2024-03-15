@@ -270,7 +270,7 @@ class GuideGuests(smach.State):#ゲストのガイド
                 ########################
 
                 #人が座ってる席をなくす処理
-                chair_x,chair_y = self.Calculate_Angle(chair_points,0)
+                chair_x,chair_y = self.Calculate_Angle(chair_points,0)#処理ができるようになるまで
                     
 
                 #########################
