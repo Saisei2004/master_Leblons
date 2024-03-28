@@ -1,0 +1,4 @@
+<launch>
+  <node name="gpt2_exam_realsense" pkg="person_feature_extraction" type="gpt2_exam_realsense.py" output="screen"/>
+  <node name="get_feature_srv" pkg="happymimi_voice_common" type="get_feature_srv.py" output="screen"/>
+</launch>
