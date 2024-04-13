@@ -1,3 +1,5 @@
+[日本語](./cml_ja.md) | [English](./cml_en.md)
+
 # Carry My Luggage (CML)
 
 ## Reference Video
