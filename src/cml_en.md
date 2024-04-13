@@ -20,7 +20,7 @@ This task focuses on pointing recognition, manipulation, mapping and navigation 
 - **Start Location**: The robot starts from the center of the `Dining Room`, facing the center between two chairs.
 - **Luggage (Paper Bags)**: Two paper bags are placed near the operator (within 2 meters and visible to the robot).
   - **Size**: TBD
-  - **Placement**: Handled by OC and TC. Bags are placed on top of a chair.
+  - **Placement**: Handled by OC and TC.
 - **Operator**: The operator stands in front of the robot and points to the paper bag to be used during the competition. The operator can be selected from your own team (at your discretion).
 
 > **Warning**
